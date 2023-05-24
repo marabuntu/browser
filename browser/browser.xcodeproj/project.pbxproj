@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		2C11EE672A1C75A70007508D /* browserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE662A1C75A70007508D /* browserApp.swift */; };
-		2C11EE692A1C75A70007508D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE682A1C75A70007508D /* ContentView.swift */; };
+		2C11EE692A1C75A70007508D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE682A1C75A70007508D /* HomeView.swift */; };
 		2C11EE6B2A1C75A90007508D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C11EE6A2A1C75A90007508D /* Assets.xcassets */; };
 		2C11EE6E2A1C75A90007508D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C11EE6D2A1C75A90007508D /* Preview Assets.xcassets */; };
+		2C11EE752A1C77DB0007508D /* WebViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE742A1C77DB0007508D /* WebViewRepresentable.swift */; };
+		2C11EE772A1C7DF30007508D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE762A1C7DF30007508D /* MenuView.swift */; };
+		2C11EE7D2A1DAEE00007508D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE7C2A1DAEE00007508D /* WebView.swift */; };
+		2C11EE7F2A1DAF0B0007508D /* WebViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE7E2A1DAF0B0007508D /* WebViewVM.swift */; };
+		2C11EE832A1DCA100007508D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE822A1DCA100007508D /* Constants.swift */; };
+		2C11EE862A1DD0D00007508D /* MenuViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE852A1DD0D00007508D /* MenuViewVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C11EE632A1C75A70007508D /* browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C11EE662A1C75A70007508D /* browserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = browserApp.swift; sourceTree = "<group>"; };
-		2C11EE682A1C75A70007508D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2C11EE682A1C75A70007508D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C11EE6A2A1C75A90007508D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C11EE6D2A1C75A90007508D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2C11EE742A1C77DB0007508D /* WebViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentable.swift; sourceTree = "<group>"; };
+		2C11EE762A1C7DF30007508D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		2C11EE7C2A1DAEE00007508D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		2C11EE7E2A1DAF0B0007508D /* WebViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVM.swift; sourceTree = "<group>"; };
+		2C11EE822A1DCA100007508D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2C11EE852A1DD0D00007508D /* MenuViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				2C11EE662A1C75A70007508D /* browserApp.swift */,
-				2C11EE682A1C75A70007508D /* ContentView.swift */,
+				2C11EE782A1C83290007508D /* Home */,
+				2C11EE7B2A1DAEB00007508D /* WebView */,
+				2C11EE812A1DC9F00007508D /* Support */,
+				2C11EE842A1DD0BB0007508D /* Menu */,
 				2C11EE6A2A1C75A90007508D /* Assets.xcassets */,
 				2C11EE6C2A1C75A90007508D /* Preview Content */,
 			);
@@ -65,6 +80,41 @@
 				2C11EE6D2A1C75A90007508D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2C11EE782A1C83290007508D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2C11EE682A1C75A70007508D /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2C11EE7B2A1DAEB00007508D /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				2C11EE742A1C77DB0007508D /* WebViewRepresentable.swift */,
+				2C11EE7C2A1DAEE00007508D /* WebView.swift */,
+				2C11EE7E2A1DAF0B0007508D /* WebViewVM.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		2C11EE812A1DC9F00007508D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2C11EE822A1DCA100007508D /* Constants.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		2C11EE842A1DD0BB0007508D /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				2C11EE762A1C7DF30007508D /* MenuView.swift */,
+				2C11EE852A1DD0D00007508D /* MenuViewVM.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C11EE692A1C75A70007508D /* ContentView.swift in Sources */,
+				2C11EE752A1C77DB0007508D /* WebViewRepresentable.swift in Sources */,
+				2C11EE772A1C7DF30007508D /* MenuView.swift in Sources */,
+				2C11EE692A1C75A70007508D /* HomeView.swift in Sources */,
+				2C11EE7D2A1DAEE00007508D /* WebView.swift in Sources */,
 				2C11EE672A1C75A70007508D /* browserApp.swift in Sources */,
+				2C11EE7F2A1DAF0B0007508D /* WebViewVM.swift in Sources */,
+				2C11EE862A1DD0D00007508D /* MenuViewVM.swift in Sources */,
+				2C11EE832A1DCA100007508D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
