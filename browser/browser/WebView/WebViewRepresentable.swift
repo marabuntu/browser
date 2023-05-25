@@ -12,13 +12,17 @@ import WebKit
 struct WebViewRepresentable {
     static private var webView = WKWebView()
     static private var subscription: AnyCancellable?
+    static private var observation: NSKeyValueObservation?
     @Binding private var urlString: String?
+    @Binding private var downloadingProgress: Double
     @ObservedObject private var viewModel: WebViewVM
 
-    init(urlBinding: Binding<String?>, viewModel: WebViewVM) {
+    init(urlBinding: Binding<String?>, downloadingProgress: Binding<Double>, viewModel: WebViewVM) {
         self.viewModel = viewModel
+        _downloadingProgress = downloadingProgress
         _urlString = urlBinding
         createSubscription()
+        setDelegatesAndObservations()
     }
 
     private func createSubscription() {
@@ -28,7 +32,19 @@ struct WebViewRepresentable {
                 guard let url = viewModel.stringToURL($0) else { return }
                 Self.webView.load(URLRequest(url: url))
             }
+    }
+
+    private func setDelegatesAndObservations() {
         Self.webView.navigationDelegate = viewModel
+        Self.observation = Self.webView.observe(\WKWebView.estimatedProgress, options: .new) { _, change in
+            Task { @MainActor in
+                if change.newValue == 1 {
+                    downloadingProgress = .zero
+                    return
+                }
+                downloadingProgress = change.newValue ?? .zero
+            }
+        }
     }
 }
 

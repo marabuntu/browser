@@ -9,8 +9,9 @@ import SwiftUI
 
 struct WebView: View {
     @Binding var urlString: String?
+    @Binding var progress: Double
 
     var body: some View {
-        WebViewRepresentable(urlBinding: $urlString, viewModel: WebViewVM())
+        WebViewRepresentable(urlBinding: $urlString, downloadingProgress: $progress, viewModel: WebViewVM())
     }
 }

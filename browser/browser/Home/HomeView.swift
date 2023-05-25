@@ -11,9 +11,11 @@ struct HomeView: View {
     @State private var webViewURL: String?
     @State private var selectedHistoryURL: String?
     @State private var userInputURL = ""
+    @State private var downloadingProgress: Double = .zero
 
     var body: some View {
         VStack {
+            ProgressView(value: downloadingProgress, total: 1)
             HStack {
                 TextField(Constants.searchFieldText, text: $userInputURL) {
                     webViewURL = userInputURL
@@ -22,7 +24,7 @@ struct HomeView: View {
             }
             .padding()
 
-            WebView(urlString: $webViewURL)
+            WebView(urlString: $webViewURL, progress: $downloadingProgress)
         }.onChange(of: selectedHistoryURL) {
             guard let url = $0 else { return }
             userInputURL = url
