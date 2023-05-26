@@ -11,6 +11,7 @@ enum Constants {
     static let historyItemsSeparator = "\n"
     static let httpShort = "http"
     static let httpFull = "http://"
+    static let httpsFull = "https://"
     static let historyItemsKey = "navigationURLs"
     static let searchFieldText = "URL"
     static let historyButtonText = "History"
