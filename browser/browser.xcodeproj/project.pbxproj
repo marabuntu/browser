@@ -17,6 +17,10 @@
 		2C11EE7F2A1DAF0B0007508D /* WebViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE7E2A1DAF0B0007508D /* WebViewVM.swift */; };
 		2C11EE832A1DCA100007508D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE822A1DCA100007508D /* Constants.swift */; };
 		2C11EE862A1DD0D00007508D /* MenuViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE852A1DD0D00007508D /* MenuViewVM.swift */; };
+		2C11EE8C2A2313E70007508D /* URLHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE8B2A2313E70007508D /* URLHistory.swift */; };
+		2C11EE8E2A2324010007508D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE8D2A2324010007508D /* DateFormatter.swift */; };
+		2C11EE902A233FB50007508D /* URLHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE8F2A233FB50007508D /* URLHistoryItem.swift */; };
+		2C11EE922A233FDA0007508D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11EE912A233FDA0007508D /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		2C11EE7E2A1DAF0B0007508D /* WebViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVM.swift; sourceTree = "<group>"; };
 		2C11EE822A1DCA100007508D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2C11EE852A1DD0D00007508D /* MenuViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewVM.swift; sourceTree = "<group>"; };
+		2C11EE8B2A2313E70007508D /* URLHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHistory.swift; sourceTree = "<group>"; };
+		2C11EE8D2A2324010007508D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		2C11EE8F2A233FB50007508D /* URLHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHistoryItem.swift; sourceTree = "<group>"; };
+		2C11EE912A233FDA0007508D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +101,9 @@
 		2C11EE7B2A1DAEB00007508D /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				2C11EE742A1C77DB0007508D /* WebViewRepresentable.swift */,
-				2C11EE7C2A1DAEE00007508D /* WebView.swift */,
-				2C11EE7E2A1DAF0B0007508D /* WebViewVM.swift */,
+				2C11EE8A2A2313D20007508D /* Model */,
+				2C11EE882A2313B70007508D /* View */,
+				2C11EE892A2313C30007508D /* VM */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -104,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				2C11EE822A1DCA100007508D /* Constants.swift */,
+				2C11EE8D2A2324010007508D /* DateFormatter.swift */,
+				2C11EE912A233FDA0007508D /* Date+Extensions.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -115,6 +125,32 @@
 				2C11EE852A1DD0D00007508D /* MenuViewVM.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		2C11EE882A2313B70007508D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C11EE742A1C77DB0007508D /* WebViewRepresentable.swift */,
+				2C11EE7C2A1DAEE00007508D /* WebView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C11EE892A2313C30007508D /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				2C11EE7E2A1DAF0B0007508D /* WebViewVM.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		2C11EE8A2A2313D20007508D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C11EE8B2A2313E70007508D /* URLHistory.swift */,
+				2C11EE8F2A233FB50007508D /* URLHistoryItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +225,11 @@
 			files = (
 				2C11EE752A1C77DB0007508D /* WebViewRepresentable.swift in Sources */,
 				2C11EE772A1C7DF30007508D /* MenuView.swift in Sources */,
+				2C11EE8C2A2313E70007508D /* URLHistory.swift in Sources */,
 				2C11EE692A1C75A70007508D /* HomeView.swift in Sources */,
+				2C11EE8E2A2324010007508D /* DateFormatter.swift in Sources */,
+				2C11EE922A233FDA0007508D /* Date+Extensions.swift in Sources */,
+				2C11EE902A233FB50007508D /* URLHistoryItem.swift in Sources */,
 				2C11EE7D2A1DAEE00007508D /* WebView.swift in Sources */,
 				2C11EE672A1C75A70007508D /* browserApp.swift in Sources */,
 				2C11EE7F2A1DAF0B0007508D /* WebViewVM.swift in Sources */,

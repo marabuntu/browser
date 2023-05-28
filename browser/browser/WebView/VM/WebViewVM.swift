@@ -10,7 +10,7 @@ import Combine
 import WebKit
 
 class WebViewVM: NSObject, ObservableObject {
-    @AppStorage(Constants.historyItemsKey) private var navigationURLs = ""
+    @AppStorage(Constants.historyItemsKey) private var navigationHistory: URLHistory = .empty
     @Binding private var loadedURL: String
     private static var lastLoadedURL = ""
 
@@ -23,24 +23,26 @@ class WebViewVM: NSObject, ObservableObject {
         return string != Self.lastLoadedURL
     }
 
-    func stringToURL(_ string: String) -> URL? {
-        var fullUrlString = string
-        if !string.starts(with: Constants.httpShort) {
-            fullUrlString = Constants.httpFull + fullUrlString
+    func stringToURL(_ string: String) -> URL {
+        guard
+            string.firstIndex(of: " ") == nil,
+            string.firstIndex(of: ".") != nil
+        else {
+            return stringToSearchURL(string)
         }
-        return URL(string: fullUrlString)
+        let fullUrlString = string.starts(with: Constants.httpShort) ? string : Constants.httpFull + string
+        return URL(string: fullUrlString)!
     }
 
-    func stringToSearchURL(_ string: String) -> URL {
-        let urlString = Constants.googleSearchPattern + string.replacingOccurrences(of: " ", with: "+")
-        return URL(string: urlString)!
+    private func stringToSearchURL(_ string: String) -> URL {
+        URL(string: Constants.googleSearchPattern + string.replacingOccurrences(of: " ", with: "+"))!
     }
 }
 
 extension WebViewVM: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         guard let url = webView.url?.absoluteString, !url.isEmpty else { return }
-        navigationURLs = url + Constants.historyItemsSeparator + navigationURLs
+        navigationHistory.add(item: .init(title: url, date: .init()))
         loadedURL = url
     }
 }
