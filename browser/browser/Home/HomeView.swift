@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var selectedHistoryURL: String?
     @State private var userInputURL = ""
     @State private var downloadingProgress: Double = .zero
+    @State private var loadedURL = ""
 
     var body: some View {
         VStack {
@@ -24,11 +25,13 @@ struct HomeView: View {
             }
             .padding()
 
-            WebView(urlString: $webViewURL, progress: $downloadingProgress)
+            WebView(urlString: $webViewURL, loadedURL: $loadedURL, progress: $downloadingProgress)
         }.onChange(of: selectedHistoryURL) {
             guard let url = $0 else { return }
             userInputURL = url
             webViewURL = url
+        }.onChange(of: loadedURL) {
+            userInputURL = $0
         }
     }
 }

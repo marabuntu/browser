@@ -10,8 +10,13 @@ import Combine
 import WebKit
 
 class WebViewVM: NSObject, ObservableObject {
-    @AppStorage(Constants.historyItemsKey) var navigationURLs = ""
+    @AppStorage(Constants.historyItemsKey) private var navigationURLs = ""
+    @Binding private var loadedURL: String
     private static var lastLoadedURL = ""
+
+    init(loadedURL: Binding<String>) {
+        _loadedURL = loadedURL
+    }
 
     func isLoadingAllowed(forURL string: String) -> Bool {
         defer { Self.lastLoadedURL = string }
@@ -31,5 +36,6 @@ extension WebViewVM: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         guard let url = webView.url?.absoluteString, !url.isEmpty else { return }
         navigationURLs = url + Constants.historyItemsSeparator + navigationURLs
+        loadedURL = url
     }
 }

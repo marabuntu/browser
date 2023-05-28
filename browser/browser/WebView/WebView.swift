@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct WebView: View {
-    @Binding var urlString: String?
-    @Binding var progress: Double
+    @Binding private var urlString: String?
+    @Binding private var loadedURL: String
+    @Binding private var progress: Double
+
+    init(urlString: Binding<String?>, loadedURL: Binding<String>, progress: Binding<Double>) {
+        _urlString = urlString
+        _loadedURL = loadedURL
+        _progress = progress
+    }
 
     var body: some View {
-        WebViewRepresentable(urlBinding: $urlString, downloadingProgress: $progress, viewModel: WebViewVM())
+        WebViewRepresentable(
+            urlBinding: $urlString,
+            downloadingProgress: $progress,
+            viewModel: WebViewVM(loadedURL: $loadedURL)
+        )
     }
 }

@@ -12,7 +12,7 @@ protocol MenuViewVMProtocol: ObservableObject, AnyObject {
 }
 
 final class MenuViewVM: MenuViewVMProtocol {
-    @AppStorage(Constants.historyItemsKey) var navigationURLs = ""
+    @AppStorage(Constants.historyItemsKey) private var navigationURLs = ""
     @Published var history = [String]()
 
     init() {
