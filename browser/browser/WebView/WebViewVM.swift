@@ -30,6 +30,11 @@ class WebViewVM: NSObject, ObservableObject {
         }
         return URL(string: fullUrlString)
     }
+
+    func stringToSearchURL(_ string: String) -> URL {
+        let urlString = Constants.googleSearchPattern + string.replacingOccurrences(of: " ", with: "+")
+        return URL(string: urlString)!
+    }
 }
 
 extension WebViewVM: WKNavigationDelegate {

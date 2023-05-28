@@ -29,7 +29,7 @@ struct WebViewRepresentable {
         Self.subscription = urlString.publisher
             .filter { viewModel.isLoadingAllowed(forURL: $0) }
             .sink {
-                guard let url = viewModel.stringToURL($0) else { return }
+                let url = viewModel.stringToURL($0) ?? viewModel.stringToSearchURL($0)
                 Self.webView.load(URLRequest(url: url))
             }
     }

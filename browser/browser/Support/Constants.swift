@@ -15,4 +15,5 @@ enum Constants {
     static let historyItemsKey = "navigationURLs"
     static let searchFieldText = "URL"
     static let historyButtonText = "History"
+    static let googleSearchPattern = "https://www.google.com/search?q="
 }
