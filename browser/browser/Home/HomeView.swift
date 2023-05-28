@@ -21,9 +21,11 @@ struct HomeView: View {
                 TextField(Constants.searchFieldText, text: $userInputURL) {
                     webViewURL = userInputURL
                 }
+                .foregroundColor(.gray)
+
                 MenuView(viewModel: MenuViewVM(), selectedUrlBinding: $selectedHistoryURL)
             }
-            .padding()
+            .padding(.init(top: 4, leading: 6, bottom: 4, trailing: 6))
 
             WebView(urlString: $webViewURL, loadedURL: $loadedURL, progress: $downloadingProgress)
         }.onChange(of: selectedHistoryURL) {

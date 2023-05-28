@@ -17,7 +17,7 @@ struct MenuView<MenuViewVM: MenuViewVMProtocol>: View {
     }
 
     var body: some View {
-        Menu(Constants.historyButtonText) {
+        Menu {
             ForEach(separateByBaseURLs(viewModel.history), id: \.self) { urls in
                 if urls.count > 1, let url = urls.first, let baseURLString = baseURL(of: url) {
                     Menu(baseURLString) {
@@ -29,6 +29,8 @@ struct MenuView<MenuViewVM: MenuViewVMProtocol>: View {
                     createButton(for: url)
                 }
             }
+        } label: {
+            Image(systemName: "clock")
         }
     }
 
